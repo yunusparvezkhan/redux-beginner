@@ -30,3 +30,14 @@ const createClaim = (name, claimAmount) => {
         }
     }
 }
+
+
+// Reducer functions. Departments in our project
+
+const claimsHistory = (oldListOfClaims, action) => {
+    if (action.type === 'CREATE_POLICY') {
+        // add claim on the claims list
+    } else {
+        //we dont care about this action
+    }
+}
