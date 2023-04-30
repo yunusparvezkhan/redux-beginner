@@ -1,7 +1,9 @@
 import Redux from 'redux';
+// let Redux = require('redux');
 
 console.clear();
 
+console.log(Redux)
 // People dropping off a form (Action Creators)
 
 const createPolicy = (name, amount) => {
@@ -82,5 +84,7 @@ const ourDepartments = combineReducers({
 const store = createStore(ourDepartments);
 
 store;
+
+
 
 
