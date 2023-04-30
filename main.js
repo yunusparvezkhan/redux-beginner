@@ -30,7 +30,7 @@ const createClaim = (name, claimAmount) => {
         type: 'CREATE_CLAIM',
         payload: {
             name: name,
-            amountClaimed: claimAmount
+            claimAmount: claimAmount
         }
     }
 }
@@ -52,7 +52,7 @@ const claimsHistory = (oldListOfClaims = [], action) => {
 
 const accounting = (stockOfMoney = 100000, action) => {
     if (action.type === 'CREATE_CLAIM') {
-        return stockOfMoney - action.payload.acmountClaimed;
+        return stockOfMoney - action.payload.claimAmount;
     } else if (action.type === 'CREATE_POLICY') {
         return stockOfMoney + action.payload.amount;
     } else {
@@ -89,9 +89,15 @@ const store = createStore(ourDepartments);
 const action01 = createPolicy('Yunus Parvez Khan', 2000);
 // Previously created action functions being called through an simple variable named as action01
 
-store.dispatch(action01).then
+store.dispatch(action01)
 // Dispatch method simply sends the action functions/objects to all the reducer functions associated to the variable mentioned before this method.
 
-console.log(store.getState())
+// console.log(store.getState())
 // getState method is a simple method that throughs an object with all the states on the component
+
+
+// We could dispatch the actions like the following as well
+store.dispatch(createClaim('Yunus Parvez Khan', 5000));
+
+console.log(store.getState())
 
