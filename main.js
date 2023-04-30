@@ -76,9 +76,9 @@ const { createStore, combineReducers } = Redux; // importing Redux functions (co
 
 // this following code declares the states, and their updater reducer function sources.
 const ourDepartments = combineReducers({
-    accounting: accounting,
-    claimsHistory: claimsHistory,
-    policies: policies
+    ReserveStock: accounting,
+    ClaimsHistory: claimsHistory,
+    PolicyList: policies
 
 })
 
