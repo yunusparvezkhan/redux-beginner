@@ -108,5 +108,11 @@ store.dispatch(createPolicy('Ram Chakrabarty', 5000));
 store.dispatch(createPolicy('Joseph Ramakrisnan', 5000));
 store.dispatch(createPolicy('Angelika Morje', 5000));
 
+
+// Claiming Policy
+
+store.dispatch(createClaim('Angelika Morje', 20000));
+store.dispatch(createClaim('Ram Chakrabarty', 18000));
+
 console.log(store.getState())
 
