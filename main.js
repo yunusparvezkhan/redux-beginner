@@ -86,10 +86,10 @@ const ourDepartments = combineReducers({
 const store = createStore(ourDepartments);
 // creates a state dabase type of thing, called as store in redux world
 
-const action01 = createPolicy('Yunus Parvez Khan', 2000);
+// const action01 = createPolicy('Yunus Parvez Khan', 2000);
 // Previously created action functions being called through an simple variable named as action01
 
-store.dispatch(action01)
+// store.dispatch(action01)
 // Dispatch method simply sends the action functions/objects to all the reducer functions associated to the variable mentioned before this method.
 
 // console.log(store.getState())
@@ -97,7 +97,16 @@ store.dispatch(action01)
 
 
 // We could dispatch the actions like the following as well
-store.dispatch(createClaim('Yunus Parvez Khan', 5000));
+store.dispatch(createPolicy('Yunus Parvez Khan', 5000));
+store.dispatch(createPolicy('Arpita Das', 5000));
+store.dispatch(createPolicy('Sucharita Das', 5000));
+store.dispatch(createPolicy('Swaraswati Parvez Khan', 5000));
+store.dispatch(createPolicy('Supriyo Mal', 5000));
+store.dispatch(createPolicy('Krishna Parvez Khan', 5000));
+store.dispatch(createPolicy('Abinus Parvez Khan', 5000));
+store.dispatch(createPolicy('Ram Chakrabarty', 5000));
+store.dispatch(createPolicy('Joseph Ramakrisnan', 5000));
+store.dispatch(createPolicy('Angelika Morje', 5000));
 
 console.log(store.getState())
 
