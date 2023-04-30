@@ -85,6 +85,8 @@ const store = createStore(ourDepartments);
 
 store;
 
+const action = createPolicy('Yunus Parvez Khan', 2000);
 
+console.log(action)
 
 
