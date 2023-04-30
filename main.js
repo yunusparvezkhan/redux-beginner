@@ -65,7 +65,7 @@ const policies = (listOfPolicies = [], action) => {
     if (action.type === 'CREATE_POLICY') {
         return [...listOfPolicies, action.payload];
     } else if (action.type === 'DELETE_POLICY') {
-        return listOfPolicies.filter(e => { e !== action.payload });
+        return listOfPolicies.filter(e => e.name !== action.payload.name);
     } else {
         return listOfPolicies;
     }
@@ -97,6 +97,7 @@ const store = createStore(ourDepartments);
 
 
 // We could dispatch the actions like the following as well
+// Creating some policies
 store.dispatch(createPolicy('Yunus Parvez Khan', 5000));
 store.dispatch(createPolicy('Arpita Das', 5000));
 store.dispatch(createPolicy('Sucharita Das', 5000));
@@ -108,11 +109,13 @@ store.dispatch(createPolicy('Ram Chakrabarty', 5000));
 store.dispatch(createPolicy('Joseph Ramakrisnan', 5000));
 store.dispatch(createPolicy('Angelika Morje', 5000));
 
-
 // Claiming Policy
-
 store.dispatch(createClaim('Angelika Morje', 20000));
 store.dispatch(createClaim('Ram Chakrabarty', 18000));
+
+// Deleting Policy
+store.dispatch(deletePolicy('Joseph Ramakrisnan'));
+
 
 console.log(store.getState())
 
