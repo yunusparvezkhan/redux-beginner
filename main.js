@@ -1,14 +1,14 @@
-import Redux from 'redux';
+import * as Redux from "https://cdn.skypack.dev/redux@4.2.1";
 // let Redux = require('redux');
 
 console.clear();
 
-console.log(Redux)
+// console.log(Redux)
 // People dropping off a form (Action Creators)
 
 const createPolicy = (name, amount) => {
     return { // this object is called an action
-        type: 'CREAT_POLICY', // ususally written like this
+        type: 'CREATE_POLICY', // ususally written like this
         payload: { // object that will contain the informations. Following informations are according to the project
             name: name,
             amount: amount //repressents ₹
@@ -72,8 +72,9 @@ const policies = (listOfPolicies = [], action) => {
 }
 
 
-const { createStore, combineReducers } = Redux;
+const { createStore, combineReducers } = Redux; // importing Redux functions (coded in codepen)
 
+// this following code declares the states, and their updater reducer function sources.
 const ourDepartments = combineReducers({
     accounting: accounting,
     claimsHistory: claimsHistory,
@@ -81,12 +82,16 @@ const ourDepartments = combineReducers({
 
 })
 
+
 const store = createStore(ourDepartments);
+// creates a state dabase type of thing, called as store in redux world
 
-store;
+const action01 = createPolicy('Yunus Parvez Khan', 2000);
+// Previously created action functions being called through an simple variable named as action01
 
-const action = createPolicy('Yunus Parvez Khan', 2000);
+store.dispatch(action01).then
+// Dispatch method simply sends the action functions/objects to all the reducer functions associated to the variable mentioned before this method.
 
-console.log(action)
-
+console.log(store.getState())
+// getState method is a simple method that throughs an object with all the states on the component
 
