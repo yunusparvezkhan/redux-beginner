@@ -1,3 +1,5 @@
+import Redux from 'redux';
+
 console.clear();
 
 // People dropping off a form (Action Creators)
@@ -67,5 +69,18 @@ const policies = (listOfPolicies = [], action) => {
     }
 }
 
+
+const { createStore, combineReducers } = Redux;
+
+const ourDepartments = combineReducers({
+    accounting: accounting,
+    claimsHistory: claimsHistory,
+    policies: policies
+
+})
+
+const store = createStore(ourDepartments);
+
+store;
 
 
