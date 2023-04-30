@@ -57,4 +57,15 @@ const accounting = (stockOfMoney = 100000, action) => {
 }
 
 
+const policies = (listOfPolicies = [], action) => {
+    if (action.type === 'CREATE_POLICY') {
+        return [...listOfPolicies, action.payload];
+    } else if (action.type === 'DELETE_POLICY') {
+        return listOfPolicies.filter(e => { e !== action.payload });
+    } else {
+        return listOfPolicies;
+    }
+}
+
+
 
