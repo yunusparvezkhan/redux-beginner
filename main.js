@@ -35,13 +35,25 @@ const createClaim = (name, claimAmount) => {
 // Reducer functions. Departments in our project
 
 const claimsHistory = (oldListOfClaims = [], action) => {
-    if (action.type === 'CLAIM_POLICY') {
+    if (action.type === 'CREATE_CLAIM') {
         // add claim on the claims list
         return [...oldListOfClaims, action.payload]; // This adds action.payload to a new array following the oldListofClaims.
     } else {
         //we dont care about this action
         return oldListOfClaims; // This will return back oldListofClaims.
     };
+}
+
+// Reducer functions for other departments
+
+const accounting = (stockOfMoney = 100000, action) => {
+    if (action.type === 'CREATE_CLAIM') {
+        return stockOfMoney - action.payload.acmountClaimed;
+    } else if (action.type === 'CREATE_POLICY') {
+        return stockOfMoney + action.payload.amount;
+    } else {
+        return stockOfMoney
+    }
 }
 
 
